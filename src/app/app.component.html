@@ -1,0 +1,17 @@
+
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="isLoggedIn" >
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" (click)="logOut()">Logout</a>
+    </div>
+</nav>
+
+<!-- main app container -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

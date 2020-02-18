@@ -1,0 +1,49 @@
+<div class="conatiner">
+    <div>
+
+<div class="topnav">
+        <button class="btn btn-primary" (click)="getData()">FETCH</button>
+
+        <div class="login-container">
+          <form >
+            <input type="text" [(ngModel)]="employee" [ngModelOptions]="{standalone: true}" placeholder="Serach" />
+            <button class="btn btn-primary" (click)="logOut()">Log Out</button>
+          </form>
+        </div>
+      </div>
+
+        <div class="container text-center">
+            <div class="wrapper">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <h1>Dashboard </h1>
+
+                        <table class="table table-bordered">
+                            <thead class="text-nowrap">
+                                <tr>
+                                    <th (click)="sort('id')">Id</th>
+                                    <th (click)="sort('name')">Name</th>
+                                    <th (click)="sort('username')">Username</th>
+                                    <th (click)="sort('email')">Email</th>
+                                    <th (click)="sort('phone')">Phone</th>
+                                    <th (click)="sort('website')">Website</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr *ngFor="let employees of employeesList | search:employee | sortByColumn: {property: column, direction: direction} ;index as i">
+                                    <td>{{employees.id}}</td>
+                                    <td>{{employees.name}}</td>
+                                    <td>{{employees.username}}</td>
+                                    <td>{{employees.email}}</td>
+                                    <td>{{employees.phone}}</td>
+                                    <td>{{employees.website}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

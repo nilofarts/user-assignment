@@ -1,0 +1,27 @@
+<h2>Register</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" formControlName="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" formControlName="password" class="form-control" />
+
+    </div>
+    <div class="form-group">
+        <label for="passwordConfirmation" class="control-label">Repeat Password:</label>
+        <input type="password" class="form-control" formControlName="passwordConfirmation" title="Please re-enter your password">
+        <p *ngIf="registerForm.controls['passwordConfirmation'].invalid && (registerForm.touched || registerForm.dirty)"
+            class="error">
+            Should be same as password
+        </p>
+    </div>
+    <label>
+        <input type="checkbox" (click)="checked($event)" name="remember"> Agree to <a href="#">Terms & Conditions</a>
+    </label>
+    <div class="form-group">
+        <button [disabled]="registerButton" class="btn btn-primary">Register</button>
+        <a routerLink="/login" class="btn btn-link">Cancel</a>
+    </div>
+</form>
